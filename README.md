@@ -63,11 +63,13 @@ class TestSystem extends System
     }
 }
 
+// Attach the created system to the ECS
+ECS.attachSystem(TestSystem);
+
 // Create an entity with a component
 const testEntity = ECS.createEntity(new TestComponent(2));
 
-// Attach the system to the engine and run the update loop
-ECS.attachSystem(TestSystem);
+// Start the update loop
 setInterval(() => ECS.update(deltaTime), 1000);
 ```
 
