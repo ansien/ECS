@@ -1,7 +1,6 @@
 import 'jest-extended';
 import { Engine} from '../src';
 import { TestComponent } from './data/TestComponent';
-import { MultipleFalseComponent } from './data/MultipleFalseComponent';
 
 describe('Entity', () =>
 {

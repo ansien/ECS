@@ -25,7 +25,7 @@ export class Entity
             }
         }
 
-        let componentList = this._components.get(component.constructor.name);
+        const componentList = this._components.get(component.constructor.name);
 
         if (!componentList) {
             this._components = this._components.set(component.constructor.name, List([ component ]));
@@ -40,7 +40,7 @@ export class Entity
     }
 
     public removeComponent(component: Component): boolean {
-        let componentList = this._components.get(component.constructor.name);
+        const componentList = this._components.get(component.constructor.name);
         if (!componentList) return false;
 
         const componentIndex = componentList.findIndex(needleComponent => needleComponent === component);
@@ -59,7 +59,7 @@ export class Entity
         return true;
     }
 
-    public getComponent<T extends Component>(ComponentDefinition: Newable<T>, index: number = 0): T {
+    public getComponent<T extends Component>(ComponentDefinition: Newable<T>, index = 0): T {
         const componentList = this._components.get(ComponentDefinition.name);
 
         if (!componentList) {

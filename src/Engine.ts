@@ -19,7 +19,7 @@ export class Engine
     private readonly _familyRegistry: FamilyRegistry;
 
     constructor() {
-        this._id = nextEngineId;
+        this._id = ++nextEngineId;
         this._entityRegistry = new EntityRegistry(this);
         this._systemRegistry = new SystemRegistry(this);
         this._familyRegistry = new FamilyRegistry(this);

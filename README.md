@@ -59,7 +59,7 @@ class TestSystem extends System
         this._testFamily.entities.forEach(entity => {
             const testComponent = testTwoEntity.getComponent<TestComponent>(TestComponent);
             testComponent.testValue += 1;
-        })
+        });
     }
 }
 

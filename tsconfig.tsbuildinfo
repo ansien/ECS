@@ -126,15 +126,15 @@
         "signature": "e5e65d1d223b004f5c19145b39f1359d233cbdbaaa6dd576e42e87fd0a5a66e6"
       },
       "./src/types.ts": {
-        "version": "ebafd811f2faf395417ad8c4911f91502ae67469871bf0c06e2cbed4b6b7f3f3",
+        "version": "b4c652dd196ac11f48e6d5b178d79f3a2b33ea0548466e1ebcd19686f719abd1",
         "signature": "3a8bbaf1417eac2f3a92a6f28515319e2915a3a7f48cb993713203e9dd9271b5"
       },
       "./src/entity.ts": {
-        "version": "4c6adea428acb994ddf2eed3af5665a4175f9bf37728f1646bf01f52949243ba",
+        "version": "2adebc7060c742deb753526b55f9447f1092f4d665871bf573a2f8f9c73292e1",
         "signature": "4630968a690dd1eb75d6e12ebaf48595fd26b897e6c480d2bac1bc2db5a6cc50"
       },
       "./src/registry/entityregistry.ts": {
-        "version": "4ca86ed5c0e6b20c6306ab1a4c1cdabbe05add8a2837aab14be15dcffef7accf",
+        "version": "aabeb4f6a7961c64538577ba5a75dee529687f56cd3c0a60c6ff21c8f2121283",
         "signature": "e3418ab13248468c14f206c14aa8f1538b013ebf1ebbc2a0efd2252831b179d3"
       },
       "./src/system.ts": {
@@ -146,15 +146,15 @@
         "signature": "043c40c103e5223a8bd383b9dbd104ccd4c04f09e7f90159cacca83e0e2ff77b"
       },
       "./src/family.ts": {
-        "version": "e4994c9c71efdcb0d494115ab8e13c720e8733a722df5c117cbc924ea418c7ca",
+        "version": "13d576dada834337f653194f7c6d0f016c67eee5bf97c814100cc783d025a13c",
         "signature": "7d5e2bbcf722cb858056930bf06161ae92017791dd2281ef6ac54aad4bc7beb8"
       },
       "./src/registry/familyregistry.ts": {
-        "version": "4705e87d47da2be5133257cefbeea0aee2c6579201f0a0448b94daf71bd5cc5b",
+        "version": "140a0e54aea9f1d0d014b1614f1152a47ef5f39c6f64d6609ea7f58581428d1b",
         "signature": "3a50f9d17fc563509b1e3401b95575e59248b086c3033edbb10a3193ace29e16"
       },
       "./src/engine.ts": {
-        "version": "92e8a38725a678eed84b7156db8ca0a8311a14a2158bcebbf2b8d848b7e18ba1",
+        "version": "22d37daefa876326e8b0cbcf80d99f810dd5c467538b2e80971db14055fa8264",
         "signature": "7f839b74f2eb7b5d618000e3d1cde6ec17de0bf94cba27e6c817015b12c60825"
       },
       "./src/index.ts": {
@@ -188,6 +188,10 @@
       "./node_modules/@types/color-name/index.d.ts": {
         "version": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
         "signature": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e"
+      },
+      "./node_modules/@types/eslint-visitor-keys/index.d.ts": {
+        "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
+        "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c"
       },
       "./node_modules/@types/istanbul-lib-coverage/index.d.ts": {
         "version": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd",
@@ -232,6 +236,10 @@
       "./node_modules/@types/jest/index.d.ts": {
         "version": "2646abff0c955ca9ae25bdb9eeead8b99f19c16b8e739eb8ed5957488a146223",
         "signature": "2646abff0c955ca9ae25bdb9eeead8b99f19c16b8e739eb8ed5957488a146223"
+      },
+      "./node_modules/@types/json-schema/index.d.ts": {
+        "version": "92bc43ea5584457c9325a3d5b2ce5af77df6d2653be7e4c2e9a626f89293c3c1",
+        "signature": "92bc43ea5584457c9325a3d5b2ce5af77df6d2653be7e4c2e9a626f89293c3c1"
       },
       "./node_modules/@types/node/globals.d.ts": {
         "version": "1236b98326630298e0b9cd30ccecd77560ac925140b753f1b1a0ffc6e7b51ad4",
@@ -785,6 +793,12 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "./node_modules/@types/eslint-visitor-keys/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "./node_modules/@types/istanbul-lib-coverage/index.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -860,6 +874,12 @@
       "./node_modules/@types/jest/index.d.ts": [
         "./node_modules/jest-diff/build/index.d.ts",
         "./node_modules/pretty-format/build/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/json-schema/index.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -1420,6 +1440,9 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "./src/assembler.ts": [
+        "./src/component.ts"
+      ],
       "./node_modules/immutable/dist/immutable-nonambient.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1432,14 +1455,36 @@
         "./src/component.ts",
         "./src/types.ts"
       ],
+      "./src/registry/entityregistry.ts": [
+        "./src/engine.ts",
+        "./node_modules/immutable/dist/immutable-nonambient.d.ts",
+        "./src/component.ts",
+        "./src/entity.ts",
+        "./src/types.ts",
+        "./src/assembler.ts"
+      ],
       "./src/system.ts": [
         "./src/engine.ts"
+      ],
+      "./src/registry/systemregistry.ts": [
+        "./src/engine.ts",
+        "./src/types.ts",
+        "./src/system.ts",
+        "./node_modules/immutable/dist/immutable-nonambient.d.ts"
       ],
       "./src/family.ts": [
         "./src/registry/entityregistry.ts",
         "./node_modules/immutable/dist/immutable-nonambient.d.ts",
         "./src/types.ts",
         "./src/component.ts",
+        "./src/entity.ts"
+      ],
+      "./src/registry/familyregistry.ts": [
+        "./src/engine.ts",
+        "./node_modules/immutable/dist/immutable-nonambient.d.ts",
+        "./src/types.ts",
+        "./src/component.ts",
+        "./src/family.ts",
         "./src/entity.ts"
       ],
       "./src/engine.ts": [
@@ -1507,6 +1552,12 @@
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "./node_modules/@types/color-name/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/eslint-visitor-keys/index.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -1587,6 +1638,12 @@
       "./node_modules/@types/jest/index.d.ts": [
         "./node_modules/jest-diff/build/index.d.ts",
         "./node_modules/pretty-format/build/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/json-schema/index.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -1976,31 +2033,6 @@
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/registry/familyregistry.ts": [
-        "./src/engine.ts",
-        "./node_modules/immutable/dist/immutable-nonambient.d.ts",
-        "./src/types.ts",
-        "./src/component.ts",
-        "./src/family.ts",
-        "./src/entity.ts"
-      ],
-      "./src/registry/systemregistry.ts": [
-        "./src/engine.ts",
-        "./src/types.ts",
-        "./src/system.ts",
-        "./node_modules/immutable/dist/immutable-nonambient.d.ts"
-      ],
-      "./src/registry/entityregistry.ts": [
-        "./src/engine.ts",
-        "./node_modules/immutable/dist/immutable-nonambient.d.ts",
-        "./src/component.ts",
-        "./src/entity.ts",
-        "./src/types.ts",
-        "./src/assembler.ts"
-      ],
-      "./src/assembler.ts": [
-        "./src/component.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -2032,7 +2064,12 @@
       "./node_modules/typescript/lib/lib.es2018.regexp.d.ts",
       "./node_modules/typescript/lib/lib.es2020.bigint.d.ts",
       "./node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "./src/component.ts",
+      "./src/assembler.ts",
       "./node_modules/immutable/dist/immutable-nonambient.d.ts",
+      "./src/system.ts",
+      "./src/registry/systemregistry.ts",
+      "./src/index.ts",
       "./node_modules/@babel/types/lib/index.d.ts",
       "./node_modules/@types/babel__generator/index.d.ts",
       "./node_modules/@types/babel__traverse/index.d.ts",
@@ -2040,6 +2077,7 @@
       "./node_modules/@types/babel__template/index.d.ts",
       "./node_modules/@types/babel__core/index.d.ts",
       "./node_modules/@types/color-name/index.d.ts",
+      "./node_modules/@types/eslint-visitor-keys/index.d.ts",
       "./node_modules/@types/istanbul-lib-coverage/index.d.ts",
       "./node_modules/@types/istanbul-lib-report/index.d.ts",
       "./node_modules/@types/istanbul-reports/index.d.ts",
@@ -2051,6 +2089,7 @@
       "./node_modules/pretty-format/build/types.d.ts",
       "./node_modules/pretty-format/build/index.d.ts",
       "./node_modules/@types/jest/index.d.ts",
+      "./node_modules/@types/json-schema/index.d.ts",
       "./node_modules/@types/node/globals.d.ts",
       "./node_modules/@types/node/assert.d.ts",
       "./node_modules/@types/node/async_hooks.d.ts",
@@ -2100,17 +2139,12 @@
       "./node_modules/@types/stack-utils/index.d.ts",
       "./node_modules/@types/yargs-parser/index.d.ts",
       "./node_modules/@types/yargs/index.d.ts",
-      "./src/component.ts",
-      "./src/assembler.ts",
       "./src/types.ts",
       "./src/entity.ts",
       "./src/registry/entityregistry.ts",
-      "./src/system.ts",
-      "./src/registry/systemregistry.ts",
       "./src/family.ts",
       "./src/registry/familyregistry.ts",
-      "./src/engine.ts",
-      "./src/index.ts"
+      "./src/engine.ts"
     ]
   },
   "version": "3.8.3"

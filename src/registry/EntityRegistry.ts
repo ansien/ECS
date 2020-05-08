@@ -20,7 +20,7 @@ export class EntityRegistry
         let componentMap: Map<string, List<Component>> = Map();
 
         components.forEach(component => {
-            let componentList = componentMap.get(component.constructor.name);
+            const componentList = componentMap.get(component.constructor.name);
 
             if (!componentList) {
                 componentMap = componentMap.set(component.constructor.name, List([ component ]));

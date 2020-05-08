@@ -27,7 +27,7 @@ export class Family
         this.onFamilyCreate();
     }
 
-    public onFamilyCreate() {
+    public onFamilyCreate(): void {
         this._entityRegistry.entities.forEach(entity => {
             this.checkEntity(entity);
         });
@@ -43,7 +43,7 @@ export class Family
         return hasAny && hasAll && hasNone;
     }
 
-    public checkEntity(entity: Entity) {
+    public checkEntity(entity: Entity): void {
         if (this.isEntityMatch(entity)) {
             this._entities = this._entities.add(entity);
         } else {
@@ -51,19 +51,19 @@ export class Family
         }
     }
 
-    public onEntityCreated(entity: Entity) {
+    public onEntityCreated(entity: Entity): void {
         this.checkEntity(entity);
     }
 
-    public onEntityDestroyed(entity: Entity) {
+    public onEntityDestroyed(entity: Entity): void {
         this._entities = this._entities.remove(entity);
     }
 
-    public onComponentAdded(entity: Entity) {
+    public onComponentAdded(entity: Entity): void {
         this.checkEntity(entity);
     }
 
-    public onComponentRemoved(entity: Entity) {
+    public onComponentRemoved(entity: Entity): void {
         this.checkEntity(entity);
     }
 

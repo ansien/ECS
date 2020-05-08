@@ -27,19 +27,19 @@ export class FamilyRegistry
         return family;
     }
 
-    public onEntityCreated(entity: Entity) {
+    public onEntityCreated(entity: Entity): void {
         this._families.forEach((family) => family.onEntityCreated(entity));
     }
 
-    public onEntityDestroyed(entity: Entity) {
+    public onEntityDestroyed(entity: Entity): void {
         this._families.forEach((family) => family.onEntityDestroyed(entity));
     }
 
-    public onComponentAdded(entity: Entity) {
+    public onComponentAdded(entity: Entity): void {
         this._families.forEach((family) => family.onComponentAdded(entity));
     }
 
-    public onComponentRemoved(entity: Entity) {
+    public onComponentRemoved(entity: Entity): void {
         this._families.forEach((family) => family.onComponentRemoved(entity));
     }
 }
