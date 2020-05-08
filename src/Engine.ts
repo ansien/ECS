@@ -18,11 +18,15 @@ export class Engine
     private readonly _systemRegistry: SystemRegistry;
     private readonly _familyRegistry: FamilyRegistry;
 
-    constructor() {
+    constructor(...systems: Newable<System>[]) {
         this._id = ++nextEngineId;
         this._entityRegistry = new EntityRegistry(this);
         this._systemRegistry = new SystemRegistry(this);
         this._familyRegistry = new FamilyRegistry(this);
+
+        systems.forEach(system => {
+            this.attachSystem(system);
+        })
     }
 
     public createEntity(...components: Component[]): Entity {

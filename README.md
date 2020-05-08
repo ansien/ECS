@@ -30,8 +30,6 @@ $ yarn add @browserbyte/ecs
 Below is a small example on how you could use this package, there are multiple ways to accomplish certain things.
 
 ```typescript
-const ECS = new Engine();
-
 // Create a component class
 class TestComponent extends Component
 {
@@ -63,8 +61,8 @@ class TestSystem extends System
     }
 }
 
-// Attach the created system to the ECS
-ECS.attachSystem(TestSystem);
+// Create the ECS and attach a system
+const ECS = new Engine(TestSystem);
 
 // Create an entity with a component
 const testEntity = ECS.createEntity(new TestComponent(2));
