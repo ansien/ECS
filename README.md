@@ -6,8 +6,8 @@ Simple Entity Component System written in TypeScript.
 
 - Fully written in TypeScript
 - Fully tested 
-- Large focus on performance. Handles thousands of entities without a problem.
-- Simple API.
+- Large focus on performance, handles thousands of entities without a problem.
+- Simple API
 - Component serialization and deserialization (for networking or storage purposes).
 - Used in multiple real-world applications.
 
