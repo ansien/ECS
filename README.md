@@ -8,6 +8,8 @@ Simple Entity Component System written in TypeScript.
 - Fully tested 
 - Large focus on performance. Handles thousands of entities without a problem.
 - Simple API.
+- Component serialization and deserialization (for networking or storage purposes).
+- Used in multiple real-world applications.
 
 ## Installation
 
@@ -30,22 +32,43 @@ Below is a small example on how you could use this package, there are multiple w
 ```typescript
 const ECS = new Engine();
 
-// Create an entity with a components
-const testTwoEntity = ECS.createEntity(new TestComponent(2));
+// Create a component class
+class TestComponent extends Component
+{
+    public testValue: number;
 
-// Get and modify component data
-const testComponent = testTwoEntity.getComponent<TestComponent>(TestComponent);
-testComponent.testValue = 3;
+    constructor(testValue: number) {
+        super();
 
-// Create an entity from an assembler
-ECS.createEntityFromAssembler(TestAssembler);
+        this.testValue = testValue;
+    }
 
-// Create a family
-ECS.createFamily([ TestComponent ], [], []);
+    allowMultiple = true;
+}
 
-// Attach, update and detach systems
+// Create a system
+class TestSystem extends System
+{
+    private _testFamily!: Family;
+
+    onAttach(engine: Engine): void {
+        this._testFamily = engine.createFamily([ TestComponent ], [], []);
+    }
+
+    update(delta: number): void {
+        this._testFamily.entities.forEach(entity => {
+            const testComponent = testTwoEntity.getComponent<TestComponent>(TestComponent);
+            testComponent.testValue += 1;
+        })
+    }
+}
+
+// Create an entity with a component
+const testEntity = ECS.createEntity(new TestComponent(2));
+
+// Attach the system to the engine and run the update loop
 ECS.attachSystem(TestSystem);
-ECS.update(1000);
+setInterval(() => ECS.update(deltaTime), 1000);
 ```
 
 See the ``/examples`` folder for more example usages.
