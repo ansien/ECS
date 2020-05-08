@@ -69,14 +69,14 @@ export class Engine
     /**
      * @internal
      */
-    get familyRegistry(): FamilyRegistry {
-        return this._familyRegistry;
+    get systemRegistry(): SystemRegistry {
+        return this._systemRegistry;
     }
 
     /**
      * @internal
      */
-    get systemRegistry(): SystemRegistry {
-        return this._systemRegistry;
+    get familyRegistry(): FamilyRegistry {
+        return this._familyRegistry;
     }
 }
