@@ -1,6 +1,6 @@
 {
   "name": "@browserbyte/ecs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Entity Component System written in TypeScript",
   "main": "index.js",
   "scripts": {
