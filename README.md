@@ -34,8 +34,8 @@ const ECS = new Engine();
 const testTwoEntity = ECS.createEntity(new TestComponent(2));
 
 // Get and modify component data
-const tComponent = testTwoEntity.getComponent<TestComponent>(TestComponent);
-tComponent.testValue = 3;
+const testComponent = testTwoEntity.getComponent<TestComponent>(TestComponent);
+testComponent.testValue = 3;
 
 // Create an entity from an assembler
 ECS.createEntityFromAssembler(TestAssembler);
