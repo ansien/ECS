@@ -14,8 +14,8 @@ testEntity.addComponent(testComponent);
 const testTwoEntity = engine.createEntity(new TestComponent(2));
 
 // Get and modify a component
-const tComponent = testTwoEntity.getComponent<TestComponent>(TestComponent);
-tComponent.testValue = 3;
+const testTwoComponent = testTwoEntity.getComponent(TestComponent);
+testTwoComponent.testValue = 5;
 
 // Get all components (entity can have multiple of the same component)
 testTwoEntity.getComponents<TestComponent>(TestComponent);

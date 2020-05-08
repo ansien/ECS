@@ -57,7 +57,7 @@ class TestSystem extends System
 
     update(delta: number): void {
         this._testFamily.entities.forEach(entity => {
-            const testComponent = testTwoEntity.getComponent<TestComponent>(TestComponent);
+            const testComponent = testTwoEntity.getComponent(TestComponent);
             testComponent.testValue += 1;
         });
     }
