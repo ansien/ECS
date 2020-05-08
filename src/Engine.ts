@@ -83,4 +83,8 @@ export class Engine
     get familyRegistry(): FamilyRegistry {
         return this._familyRegistry;
     }
+
+    get id(): number {
+        return this._id;
+    }
 }
