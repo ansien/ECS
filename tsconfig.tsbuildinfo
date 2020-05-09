@@ -130,7 +130,7 @@
         "signature": "3a8bbaf1417eac2f3a92a6f28515319e2915a3a7f48cb993713203e9dd9271b5"
       },
       "./src/entity.ts": {
-        "version": "c06024fa6f1d681e46b6aa8874f98c436fdc7a27879e9d82de8adffec9a138e6",
+        "version": "4ed8f37a5275d2e0aa95691f780370b0dec60c88937115dfedc8f31256058063",
         "signature": "e216d8d98f24ea25fac41dccbdcc64bb8046ec4611c5c0c37bff6dc32842ea8a"
       },
       "./src/registry/entityregistry.ts": {
@@ -2076,6 +2076,13 @@
       "./src/assembler.ts",
       "./node_modules/immutable/dist/immutable-nonambient.d.ts",
       "./src/types.ts",
+      "./src/registry/entityregistry.ts",
+      "./src/system.ts",
+      "./src/registry/systemregistry.ts",
+      "./src/family.ts",
+      "./src/registry/familyregistry.ts",
+      "./src/engine.ts",
+      "./src/index.ts",
       "./node_modules/@babel/types/lib/index.d.ts",
       "./node_modules/@types/babel__generator/index.d.ts",
       "./node_modules/@types/babel__traverse/index.d.ts",
@@ -2145,14 +2152,7 @@
       "./node_modules/@types/stack-utils/index.d.ts",
       "./node_modules/@types/yargs-parser/index.d.ts",
       "./node_modules/@types/yargs/index.d.ts",
-      "./src/entity.ts",
-      "./src/index.ts",
-      "./src/engine.ts",
-      "./src/registry/familyregistry.ts",
-      "./src/family.ts",
-      "./src/registry/entityregistry.ts",
-      "./src/system.ts",
-      "./src/registry/systemregistry.ts"
+      "./src/entity.ts"
     ]
   },
   "version": "3.8.3"
