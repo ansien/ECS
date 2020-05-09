@@ -16,7 +16,7 @@ export class Entity
         this._components = components;
     }
 
-    public addComponent<T extends Component>(component: Component): T {
+    public addComponent<T extends Component>(component: T): T {
         if (!component.allowMultiple) {
             if (this.hasComponent(component.constructor.name)) {
                 throw new Error(
@@ -36,7 +36,7 @@ export class Entity
 
         this._engine.familyRegistry.onComponentAdded(this);
 
-        return component as T;
+        return component;
     }
 
     public removeComponent(component: Component): boolean {
@@ -72,7 +72,23 @@ export class Entity
             throw new Error(`Unable to find component ${ComponentDefinition.name} at index ${index} in entity with ID: ${this.id}`);
         }
 
-        return componentList.get(index) as T;
+        return component as T;
+    }
+
+    public getComponentSafe<T extends Component>(ComponentDefinition: Newable<T>, index = 0): T | undefined {
+        const componentList = this._components.get(ComponentDefinition.name);
+
+        if (!componentList) {
+            return undefined;
+        }
+
+        const component = componentList.get(index);
+
+        if (!component) {
+            return undefined;
+        }
+
+        return component as T | undefined;
     }
 
     public getComponents<T extends Component>(ComponentDefinition: Newable<T>): T[] {

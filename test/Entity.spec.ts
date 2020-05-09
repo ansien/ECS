@@ -37,6 +37,17 @@ describe('Entity', () =>
         expect(() => { testEntity.getComponent(TestComponent, 5) }).toThrowError();
     });
 
+    test('Get component safe', () => {
+        const testEngine = new Engine();
+        const testEntity = testEngine.createEntity();
+
+        testEntity.addComponent(new TestComponent(5));
+
+        expect(testEntity.getComponentSafe(TestComponent)).toBeInstanceOf(TestComponent);
+        expect(testEntity.getComponentSafe(TestComponent, 0)).toBeInstanceOf(TestComponent);
+        expect(testEntity.getComponentSafe(TestComponent, 5)).toBeUndefined();
+    });
+
     test('Get components', () => {
         const testEngine = new Engine();
         const testEntity = testEngine.createEntity();

@@ -130,8 +130,8 @@
         "signature": "3a8bbaf1417eac2f3a92a6f28515319e2915a3a7f48cb993713203e9dd9271b5"
       },
       "./src/entity.ts": {
-        "version": "2adebc7060c742deb753526b55f9447f1092f4d665871bf573a2f8f9c73292e1",
-        "signature": "4630968a690dd1eb75d6e12ebaf48595fd26b897e6c480d2bac1bc2db5a6cc50"
+        "version": "f604efe5090bcc5035f014f091fda9584b020ad97ca13b4dd90b0fd5cc6de707",
+        "signature": "82be75c33bb95f1b698814320f9b92d7517a17b616c28900e842d242fce7dc84"
       },
       "./src/registry/entityregistry.ts": {
         "version": "aabeb4f6a7961c64538577ba5a75dee529687f56cd3c0a60c6ff21c8f2121283",
@@ -2145,14 +2145,14 @@
       "./node_modules/@types/stack-utils/index.d.ts",
       "./node_modules/@types/yargs-parser/index.d.ts",
       "./node_modules/@types/yargs/index.d.ts",
-      "./src/engine.ts",
-      "./src/index.ts",
-      "./src/registry/familyregistry.ts",
-      "./src/registry/systemregistry.ts",
-      "./src/system.ts",
-      "./src/registry/entityregistry.ts",
       "./src/entity.ts",
-      "./src/family.ts"
+      "./src/index.ts",
+      "./src/engine.ts",
+      "./src/registry/familyregistry.ts",
+      "./src/family.ts",
+      "./src/registry/entityregistry.ts",
+      "./src/system.ts",
+      "./src/registry/systemregistry.ts"
     ]
   },
   "version": "3.8.3"
