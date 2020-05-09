@@ -72,3 +72,10 @@ setInterval(() => ECS.update(deltaTime), 1000);
 ```
 
 See the ``/examples`` folder for more example usages.
+
+## Resources / Inspirations
+
+- https://www.youtube.com/watch?v=W3aieHjyNvw
+- https://blog.mozvr.com/introducing-ecsy/
+- https://github.com/nova-engine/ecs
+- https://github.com/ddmills/geotic
