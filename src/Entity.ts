@@ -88,7 +88,7 @@ export class Entity
             return undefined;
         }
 
-        return component as T | undefined;
+        return component as T;
     }
 
     public getComponents<T extends Component>(ComponentDefinition: Newable<T>): T[] {
