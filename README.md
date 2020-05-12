@@ -50,7 +50,7 @@ class TestSystem extends System
     private _testFamily!: Family;
 
     onAttach(engine: Engine): void {
-        this._testFamily = engine.createFamily([ TestComponent ], [], []);
+        this._testFamily = engine.createFamily([], [ TestComponent ], []);
     }
 
     update(delta: number): void {
