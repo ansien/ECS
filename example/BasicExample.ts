@@ -1,7 +1,7 @@
 import { Engine } from '../src';
-import { TestSystem } from './data/TestSystem';
 import { TestComponent } from './data/TestComponent';
 import { TestAssembler } from './data/TestAssembler';
+import { TestSystem } from './data/TestSystem';
 
 const engine = new Engine();
 

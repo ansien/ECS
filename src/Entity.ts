@@ -2,6 +2,7 @@ import { Engine } from './Engine';
 import { Component } from './Component';
 import { Map, List } from 'immutable';
 import { Newable } from './types';
+import { EntityEvent } from './EntityEvent';
 
 export class Entity
 {
@@ -107,6 +108,17 @@ export class Entity
         }
 
         return this._components.has(componentName.name);
+    }
+
+    public emitEvent(event: EntityEvent): void {
+        this._components.forEach(componentList => {
+            componentList.forEach(component => {
+                if (component.eventSubscriptions.has(event.constructor.name)) {
+                    if (event.isHandled || event.isPrevented) return;
+                    component.handleEvent(event);
+                }
+            })
+        })
     }
 
     get id(): number {
