@@ -1,14 +1,10 @@
 import { Map } from 'immutable';
-import { Newable } from './types';
 import { EntityEvent, EntityEventHandlerFunction, EntityEventSubscription } from './EntityEvent';
+import { Newable } from '../types';
 
 export abstract class Component
 {
     private _eventSubscriptions: Map<string, EntityEventSubscription> = Map();
-
-    abstract serialize(): string;
-    abstract deserialize(serializedData: string): void;
-    abstract allowMultiple: boolean;
 
     subscribeToEvent<P extends EntityEvent>(eventDefinition: Newable<P>, handlerFunction: EntityEventHandlerFunction<P>): void {
         this._eventSubscriptions = this._eventSubscriptions.set(eventDefinition.name, { entityEvent: eventDefinition, handlerFunction });
@@ -27,6 +23,8 @@ export abstract class Component
 
         eventSubscription.handlerFunction(event);
     }
+
+    abstract allowMultiple(): boolean;
 
     get eventSubscriptions(): Map<string, EntityEventSubscription> {
         return this._eventSubscriptions;

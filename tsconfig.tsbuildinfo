@@ -433,6 +433,10 @@
         "version": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49",
         "signature": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49"
       },
+      "./node_modules/@types/ws/index.d.ts": {
+        "version": "75ce9fa40c86cf9a4f0a546958cc0e5104bf53e408e0f2b71c3757a610adb6b4",
+        "signature": "75ce9fa40c86cf9a4f0a546958cc0e5104bf53e408e0f2b71c3757a610adb6b4"
+      },
       "./node_modules/@types/yargs-parser/index.d.ts": {
         "version": "fdfbe321c556c39a2ecf791d537b999591d0849e971dd938d88f460fea0186f6",
         "signature": "fdfbe321c556c39a2ecf791d537b999591d0849e971dd938d88f460fea0186f6"
@@ -1276,6 +1280,20 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "./node_modules/@types/ws/index.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/https.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/zlib.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "./node_modules/@types/yargs-parser/index.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1464,6 +1482,14 @@
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/entityevent.ts": [
+        "./src/types.ts"
+      ],
+      "./src/component.ts": [
+        "./src/entityevent.ts",
+        "./src/types.ts",
+        "./node_modules/immutable/dist/immutable-nonambient.d.ts"
       ],
       "./src/assembler.ts": [
         "./src/component.ts"
@@ -2058,13 +2084,19 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "./src/entityevent.ts": [
-        "./src/types.ts"
-      ],
-      "./src/component.ts": [
-        "./src/entityevent.ts",
-        "./src/types.ts",
-        "./node_modules/immutable/dist/immutable-nonambient.d.ts"
+      "./node_modules/@types/ws/index.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/https.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/zlib.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -2098,6 +2130,17 @@
       "./node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "./node_modules/immutable/dist/immutable-nonambient.d.ts",
       "./src/types.ts",
+      "./src/entityevent.ts",
+      "./src/component.ts",
+      "./src/assembler.ts",
+      "./src/entity.ts",
+      "./src/registry/entityregistry.ts",
+      "./src/system.ts",
+      "./src/registry/systemregistry.ts",
+      "./src/family.ts",
+      "./src/registry/familyregistry.ts",
+      "./src/engine.ts",
+      "./src/index.ts",
       "./node_modules/@babel/types/lib/index.d.ts",
       "./node_modules/@types/babel__generator/index.d.ts",
       "./node_modules/@types/babel__traverse/index.d.ts",
@@ -2167,17 +2210,7 @@
       "./node_modules/@types/stack-utils/index.d.ts",
       "./node_modules/@types/yargs-parser/index.d.ts",
       "./node_modules/@types/yargs/index.d.ts",
-      "./src/entityevent.ts",
-      "./src/component.ts",
-      "./src/assembler.ts",
-      "./src/entity.ts",
-      "./src/registry/entityregistry.ts",
-      "./src/system.ts",
-      "./src/registry/systemregistry.ts",
-      "./src/family.ts",
-      "./src/registry/familyregistry.ts",
-      "./src/engine.ts",
-      "./src/index.ts"
+      "./node_modules/@types/ws/index.d.ts"
     ]
   },
   "version": "3.8.3"
