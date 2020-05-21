@@ -1,5 +1,5 @@
 import { SocketClient } from './WebSocketServer';
-import WebSocket from 'ws';
+import { ActionMessage } from '../common/MessageSerializer';
 
 export abstract class ActionHandler
 {
@@ -9,7 +9,7 @@ export abstract class ActionHandler
         this._actionId = actionId;
     }
 
-    abstract handle(connection: SocketClient, message: WebSocket.Data): void;
+    abstract handle(client: SocketClient, message: ActionMessage): void;
 
     get actionId(): number {
         return this._actionId;

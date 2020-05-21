@@ -14,7 +14,11 @@ export class WebSocketServer
     private _wsServer: WebSocket.Server;
     private _connectionCounter = 0;
 
-    constructor(options: ServerInstanceOptions) {
+    private _messageHandler: MessageHandler;
+
+    constructor(options: ServerInstanceOptions, messageHandler: MessageHandler) {
+        this._messageHandler = messageHandler
+
         const port = options.port ?? 3000;
 
         this._wsServer = new WebSocket.Server({
@@ -38,7 +42,7 @@ export class WebSocketServer
 
             ws.on('message', (message) => {
                 console.debug('@message:', message);
-                MessageHandler.handleMessage(ws, message);
+                this._messageHandler.handleMessage(ws, message);
             });
         });
     }

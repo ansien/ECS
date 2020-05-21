@@ -1,8 +1,9 @@
 import cluster from 'cluster';
 import { WebSocketServer } from './WebSocketServer';
-import * as os from 'os';
+import os from 'os';
 import { ActionHandler } from './ActionHandler';
 import { ActionHandlerRegistry } from './registry/ActionHandlerRegistry';
+import { MessageHandler } from './MessageHandler';
 
 export interface ServerInstanceOptions {
     port?: number;
@@ -20,12 +21,14 @@ export class ServerInstance
     private _workers: cluster.Worker[] = [];
     private _readyWorkersCount = 0;
 
-    private _actionHandlerRegistry: ActionHandlerRegistry;
+    private readonly _messageHandler: MessageHandler;
+    private readonly _actionHandlerRegistry: ActionHandlerRegistry;
 
     constructor(options: ServerInstanceOptions) {
         this._options = options;
 
         this._actionHandlerRegistry = new ActionHandlerRegistry();
+        this._messageHandler = new MessageHandler(this._actionHandlerRegistry);
 
         cluster.setupMaster({
             exec: __dirname + '/WorkerInstance'
@@ -49,7 +52,7 @@ export class ServerInstance
 
                 // Start the WS server once all workers are ready
                 if (this._readyWorkersCount >= this._workers.length) {
-                    new WebSocketServer(this._options);
+                    new WebSocketServer(this._options, this._messageHandler);
                 }
             }
         });

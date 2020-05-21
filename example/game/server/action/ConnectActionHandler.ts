@@ -1,6 +1,6 @@
 import { ActionHandler } from '../../../../src/server/ActionHandler';
-import WebSocket from 'ws';
 import { SocketClient } from '../../../../src/server/WebSocketServer';
+import { ConnectActionMessage } from '../../common/action/ConnectAction';
 
 export class ConnectActionHandler extends ActionHandler
 {
@@ -8,7 +8,8 @@ export class ConnectActionHandler extends ActionHandler
         super(1);
     }
 
-    handle(connection: SocketClient, message: WebSocket.Data): void {
-        connection.authenticated = true;
+    handle(client: SocketClient, message: ConnectActionMessage): void {
+        client.authenticated = true;
+        console.log('@ConnectActionHandler', message);
     }
 }
