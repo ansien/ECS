@@ -8,7 +8,8 @@
     "prepublish": "jest && yarpm lint && tsc",
     "test": "jest",
     "lint": "yarpm eslint . --ext .ts",
-    "build": "tsc"
+    "build": "tsc",
+    "benchmark": "artillery run ./benchmark/connections.yaml"
   },
   "dependencies": {
     "flatbuffers": "^1.12.0",

@@ -1,10 +1,12 @@
 import WebSocket from 'ws';
-import { MessageHandler } from './MessageHandler';
 import { ServerInstanceOptions } from './ServerInstance';
+import { MessageHandler } from './MessageHandler';
 
-export interface WebSocketConnection extends WebSocket {
+export interface SocketClient extends WebSocket {
     id: number;
     authenticated: boolean;
+    room: number;
+    channels: number[];
 }
 
 export class WebSocketServer
@@ -26,11 +28,16 @@ export class WebSocketServer
     }
 
     private bindWsEvents(): void {
-        this._wsServer.on('connection', (ws: WebSocketConnection) => {
+        this._wsServer.on('connection', (ws: SocketClient) => {
             ws.id = ++this._connectionCounter;
             ws.authenticated = false;
+            ws.room = -1;
+            ws.channels = [];
+
+            console.debug('@connection:', ws);
 
             ws.on('message', (message) => {
+                console.debug('@message:', message);
                 MessageHandler.handleMessage(ws, message);
             });
         });

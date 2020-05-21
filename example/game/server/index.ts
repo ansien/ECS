@@ -1,5 +1,12 @@
 import { ServerInstance } from '../../../src/server/ServerInstance';
+import { ConnectActionHandler } from './action/ConnectActionHandler';
 
-new ServerInstance({
+console.log('@@@');
+
+const serverInstance = new ServerInstance({
     port: 3030
 });
+
+serverInstance.registerActionHandlers(
+    new ConnectActionHandler
+);

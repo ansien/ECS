@@ -1,6 +1,8 @@
 import cluster from 'cluster';
 import { WebSocketServer } from './WebSocketServer';
 import * as os from 'os';
+import { ActionHandler } from './ActionHandler';
+import { ActionHandlerRegistry } from './registry/ActionHandlerRegistry';
 
 export interface ServerInstanceOptions {
     port?: number;
@@ -18,21 +20,21 @@ export class ServerInstance
     private _workers: cluster.Worker[] = [];
     private _readyWorkersCount = 0;
 
+    private _actionHandlerRegistry: ActionHandlerRegistry;
+
     constructor(options: ServerInstanceOptions) {
         this._options = options;
-        cluster.isMaster ? this.master(options) : this.worker();
-    }
 
-    private master(options: ServerInstanceOptions): void {
-        const workerCount = options.workerCount ?? os.cpus().length
+        this._actionHandlerRegistry = new ActionHandlerRegistry();
+
+        cluster.setupMaster({
+            exec: __dirname + '/WorkerInstance'
+        });
+
+        const workerCount = options.workerCount ?? os.cpus().length;
         for(let i = 0; i < workerCount; i++) {
             this.startWorker();
         }
-    }
-
-    private worker(): void {
-        if (!process.send) return;
-        process.send({ ID: cluster.worker.id, ACTION: PROCESS_ACTION.READY });
     }
 
     private startWorker(): void {
@@ -51,5 +53,11 @@ export class ServerInstance
                 }
             }
         });
+    }
+
+    public registerActionHandlers(...actionHandlers: ActionHandler[]): void {
+        actionHandlers.forEach(actionHandler => {
+            this._actionHandlerRegistry.registerActionHandler(actionHandler);
+        })
     }
 }

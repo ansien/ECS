@@ -1,0 +1,14 @@
+config:
+  target: "ws://127.0.0.1:3030"
+  phases:
+    - duration: 20
+      arrivalRate: 50
+scenarios:
+  - engine: "ws"
+    flow:
+      - loop:
+          - send: "hello"
+          - think: 1
+          - send: "world"
+        count: 50
+

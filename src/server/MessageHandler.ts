@@ -1,10 +1,10 @@
 import WebSocket from 'ws';
 import { ActionMessage, MESSAGE_TYPE, MessageBase } from '../common/MessageSerializer';
-import { WebSocketConnection } from './WebSocketServer';
+import { SocketClient } from './WebSocketServer';
 
 export class MessageHandler
 {
-    public static handleMessage(connection: WebSocketConnection, message: WebSocket.Data): void {
+    public static handleMessage(connection: SocketClient, message: WebSocket.Data): void {
         if (typeof message !== 'string') {
             return;
         }
