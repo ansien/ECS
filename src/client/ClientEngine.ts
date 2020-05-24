@@ -1,6 +1,6 @@
-import { Action } from '../common/Action';
 import WebSocket from 'ws';
-import { MessageSerializer } from '../common/MessageSerializer';
+import { MessageSerializer } from './MessageSerializer';
+import { Action } from '../common/Action';
 
 export class ClientEngine
 {

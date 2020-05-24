@@ -5,7 +5,7 @@ import { MessageHandler } from './MessageHandler';
 export interface SocketClient extends WebSocket {
     id: number;
     authenticated: boolean;
-    room: number;
+    room: string | undefined;
     channels: number[];
 }
 
@@ -35,7 +35,6 @@ export class WebSocketServer
         this._wsServer.on('connection', (ws: SocketClient) => {
             ws.id = ++this._connectionCounter;
             ws.authenticated = false;
-            ws.room = -1;
             ws.channels = [];
 
             console.debug('@connection:', ws);

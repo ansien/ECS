@@ -1,12 +1,8 @@
-import { ServerInstance } from '../../../src/server/ServerInstance';
+import { ServerInstance } from '../../../src/server/master/ServerInstance';
 import { ConnectActionHandler } from './action/ConnectActionHandler';
-
-console.log('@start');
 
 const serverInstance = new ServerInstance({
     port: 3030
 });
 
-serverInstance.registerActionHandlers(
-    new ConnectActionHandler
-);
+serverInstance.registerActionHandler(ConnectActionHandler);

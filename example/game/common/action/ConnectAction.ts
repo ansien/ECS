@@ -1,31 +1,29 @@
+import { EdosAction } from '../../../../src/common/metadata/EdosAction';
 import { Action } from '../../../../src/common/Action';
-import { ActionMessage, MESSAGE_TYPE } from '../../../../src/common/MessageSerializer';
+import { ActionMessage } from '../../../../src/common/types';
 
 export interface ConnectActionMessage extends ActionMessage {
-    [2]: string;
+    [0]: string;
 }
 
+@EdosAction({ id: 1 })
 export class ConnectAction extends Action
 {
     JWT!: string;
 
     constructor(JWT: string) {
-        super(1);
+        super();
 
         this.JWT = JWT;
     }
 
     serialize(): ConnectActionMessage {
         return [
-            MESSAGE_TYPE.ACTION,
-            this.ID,
             this.JWT
         ]
     }
 
-    deserialize(input: ConnectActionMessage): ConnectAction {
-        this.JWT = input[2];
-
-        return this;
+    deserialize(input: ConnectActionMessage) {
+        this.JWT = input[0];
     }
 }

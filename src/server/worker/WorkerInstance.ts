@@ -1,5 +1,5 @@
 import cluster from 'cluster';
-import { PROCESS_ACTION } from './ServerInstance';
+import { PROCESS_ACTION } from '../common/types';
 
 export class WorkerInstance
 {

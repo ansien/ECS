@@ -1,0 +1,12 @@
+export enum PROCESS_ACTION {
+    READY
+}
+
+export enum CLIENT_EVENT {
+    CONNECT,
+    DISCONNECT,
+    ROOM_JOIN,
+    ROOM_LEAVE,
+    CHANNEL_JOIN,
+    CHANNEL_LEAVE
+}
