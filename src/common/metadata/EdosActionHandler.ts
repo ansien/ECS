@@ -1,17 +1,18 @@
 import { MetadataStorage } from './MetadataStorage';
-import { ActionHandler } from '../../server/master/ActionHandler';
+import { Newable } from '../../../dist/types';
+import { Action } from '../Action';
 
 export interface EdosActionHandlerOptions {
-    id: number;
+    action: Newable<Action>;
 }
 
 export class EdosActionHandlerMetadata {
-    constructor(public target: ActionHandler, public options: EdosActionHandlerOptions) {}
+    constructor(public target: Function, public options: EdosActionHandlerOptions) {}
 }
 
 export function EdosActionHandler(options: EdosActionHandlerOptions) {
-    return function<T extends { new(): ActionHandler }>(ActionHandler: T): void {
-        const metadata = new EdosActionHandlerMetadata(new ActionHandler(), options);
+    return function (target: Function): void {
+        const metadata = new EdosActionHandlerMetadata(target, options);
         MetadataStorage.getInstance().addActionHandlerMetadata(metadata);
     };
 }

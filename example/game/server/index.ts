@@ -1,8 +1,8 @@
-import { ServerInstance } from '../../../src/server/master/ServerInstance';
 import { ConnectActionHandler } from './action/ConnectActionHandler';
+import { edosServer } from '../../../src/server/ServerContainer';
 
-const serverInstance = new ServerInstance({
+edosServer.registerActionHandler(ConnectActionHandler);
+
+edosServer.start({
     port: 3030
 });
-
-serverInstance.registerActionHandler(ConnectActionHandler);

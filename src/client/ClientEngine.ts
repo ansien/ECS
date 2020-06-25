@@ -1,13 +1,18 @@
 import WebSocket from 'ws';
-import { MessageSerializer } from './MessageSerializer';
-import { Action } from '../common/Action';
+import { ServerSchema } from '../../example/game/client';
 
-export class ClientEngine
+// export type ClientSideSocketNS<N extends ServerSchema> = ClientSideSocketI<
+//     N['ServerMessages'],
+//     N['ClientMessages'],
+//     N['ClientRPCs']
+// >;
+
+export class ClientEngine<S extends ServerSchema>
 {
     private _wsConnection!: WebSocket;
 
-    public async connect(masterWsServerUri: string): Promise<boolean> {
-        this._wsConnection = new WebSocket(masterWsServerUri);
+    public async connect(wsServerUri: string): Promise<boolean> {
+        this._wsConnection = new WebSocket(wsServerUri);
 
         return new Promise((resolve, reject) => {
             this._wsConnection.onopen = (): void => resolve(true);
@@ -16,14 +21,14 @@ export class ClientEngine
         })
     }
 
-    public async sendAction(action: Action): Promise<boolean> {
-        if (this._wsConnection.readyState !== WebSocket.OPEN) {
-            return false;
-        }
+    public async emit<K extends keyof S['ClientRPCs']>(
+        type: K,
+        info: S['ClientRPCs'][K]['request'],
+    ): Promise<S['ClientRPCs'][K]['response']> {
+        console.log(info);
 
-        const serializedAction = MessageSerializer.serializeAction(action);
-        this._wsConnection.send(serializedAction);
+        return new Promise(() => {
 
-        return true;
+        });
     }
 }

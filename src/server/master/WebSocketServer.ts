@@ -1,6 +1,8 @@
 import WebSocket from 'ws';
-import { ServerInstanceOptions } from './ServerInstance';
-import { MessageHandler } from './MessageHandler';
+import { ServerInstanceOptions } from './EdosServer';
+import { IMessageHandler } from './MessageHandler';
+import { inject as Inject } from 'inversify';
+import { TYPES } from '../containerTypes';
 
 export interface SocketClient extends WebSocket {
     id: number;
@@ -11,14 +13,12 @@ export interface SocketClient extends WebSocket {
 
 export class WebSocketServer
 {
+    @Inject(TYPES.IMessageHandler) private _messageHandler!: IMessageHandler;
+
     private _wsServer: WebSocket.Server;
     private _connectionCounter = 0;
 
-    private _messageHandler: MessageHandler;
-
-    constructor(options: ServerInstanceOptions, messageHandler: MessageHandler) {
-        this._messageHandler = messageHandler
-
+    constructor(options: ServerInstanceOptions) {
         const port = options.port ?? 3000;
 
         this._wsServer = new WebSocket.Server({
@@ -37,10 +37,7 @@ export class WebSocketServer
             ws.authenticated = false;
             ws.channels = [];
 
-            console.debug('@connection:', ws);
-
             ws.on('message', (message) => {
-                console.debug('@message:', message);
                 this._messageHandler.handleMessage(ws, message);
             });
         });

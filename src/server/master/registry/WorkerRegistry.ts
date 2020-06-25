@@ -1,6 +1,14 @@
 import cluster from 'cluster';
+import { injectable as Injectable } from 'inversify';
 
-export class WorkerRegistry
+export interface IWorkerRegistry {
+    workersReady(): boolean;
+    workers: Map<number, cluster.Worker>;
+    readyWorkersCount: number;
+}
+
+@Injectable()
+export class WorkerRegistry implements IWorkerRegistry
 {
     private _workers: Map<number, cluster.Worker> = new Map();
     private _readyWorkersCount = 0;

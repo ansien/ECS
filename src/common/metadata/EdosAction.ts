@@ -2,6 +2,7 @@ import { MetadataStorage } from './MetadataStorage';
 
 export interface EdosActionOptions {
     id: number;
+    response?: boolean;
 }
 
 export class EdosActionMetadata {

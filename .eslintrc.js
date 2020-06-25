@@ -12,5 +12,6 @@ module.exports = {
     rules: {
         '@typescript-eslint/no-empty-function': 0,
         '@typescript-eslint/ban-types': 0,
+        '@typescript-eslint/interface-name-prefix': 0,
     }
 };

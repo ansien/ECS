@@ -10,13 +10,6 @@ export interface ActionMessageEnvelope extends MessageEnvelope {
     [1]: number; // Action ID
 }
 
-export interface ActionMessage {
-    [index: number]: unknown;
+export interface ActionMessage extends Array<unknown> {
+    [0]: number; // Action ID
 }
-
-//
-// const test: ActionMessageEnvelope = [
-//     MESSAGE_TYPE.ACTION,
-//     1,
-//     2
-// ];

@@ -1,11 +1,14 @@
 import cluster from 'cluster';
-import { WebSocketServer } from './WebSocketServer';
 import os from 'os';
-import { MessageHandler } from './MessageHandler';
 import { PROCESS_ACTION } from '../common/types';
-import { WorkerRegistry } from './registry/WorkerRegistry';
 import { ActionHandler } from './ActionHandler';
 import { Newable } from '../../../dist/types';
+import { IPublicRegistry } from './registry/PublicRegistry';
+import { inject as Inject } from 'inversify';
+import { IWorkerRegistry } from './registry/WorkerRegistry';
+import { WebSocketServer } from './WebSocketServer';
+import { TYPES } from '../containerTypes';
+import { injectable as Injectable } from 'inversify';
 
 export interface ServerInstanceOptions {
     port?: number;
@@ -13,18 +16,16 @@ export interface ServerInstanceOptions {
     workerCount?: number;
 }
 
-export class ServerInstance
+@Injectable()
+export class EdosServer
 {
-    private readonly _options: ServerInstanceOptions;
+    @Inject(TYPES.IPublicRegistry) private _publicRegistry!: IPublicRegistry;
+    @Inject(TYPES.IWorkerRegistry) private _workerRegistry!: IWorkerRegistry;
 
-    private readonly _workerRegistry: WorkerRegistry;
-    private readonly _messageHandler: MessageHandler;
+    private _options!: ServerInstanceOptions;
 
-    constructor(options: ServerInstanceOptions) {
+    public start(options: ServerInstanceOptions): void {
         this._options = options;
-
-        this._workerRegistry = new WorkerRegistry();
-        this._messageHandler = new MessageHandler();
 
         cluster.setupMaster({
             exec: __dirname + '/../Worker/WorkerInstance'
@@ -47,13 +48,13 @@ export class ServerInstance
                 this._workerRegistry.readyWorkersCount++;
 
                 if (this._workerRegistry.workersReady()) {
-                    new WebSocketServer(this._options, this._messageHandler);
+                    new WebSocketServer(this._options);
                 }
             }
         });
     }
 
-    public registerActionHandler(actionHandler: Newable<ActionHandler>) {
-
+    public registerActionHandler(handler: Newable<ActionHandler>): void {
+        this._publicRegistry.registerActionHandler(handler);
     }
 }
