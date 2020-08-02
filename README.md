@@ -1,8 +1,9 @@
+
+**Warning: This package is currently not being maintained. Use [ECSY](https://ecsy.io/) instead.**
+
 # BrowserByte/ECS
 
 Simple Entity Component System written in TypeScript. 
-
-**Warning: This package is currently not being maintained. Use [ECSY](https://ecsy.io/) instead.**
 
 ## Features
 
